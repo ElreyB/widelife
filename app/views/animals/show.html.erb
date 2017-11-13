@@ -1,8 +1,28 @@
 <% content_for(:title, "Wildlife Tracker | Animals") %>
 
+<h2> <%= @animal.species %> </h2>
+
+<% if @animal.sightings.any? %>
+  <h4>Here are the sightings of this animal:</h4>
+  <ul>
+    <% @animal.sightings.each do |sighting| %>
+    <li>
+      <%= sighting.date %>
+      <%= sighting.latitude %>
+      <%= sighting.longitude %>
+      <%= link_to "Edit", edit_animal_sighting_path(@animal, sighting) %> |
+      <%= link_to "Delete", animal_sighting_path(@animal, sighting),
+                                  :data => {:confirm => "Are you sure?",
+                                            :method => "delete" } %>
+    </li>
+  <% end %>
+  </ul>
+<% else %>
+  <p>There are no sightings yet.</p>
+<% end %>
 <p> <%= link_to "Edit", edit_animal_path(@animal) %></p>
 <p> <%= link_to "Delete", animal_path(@animal),
                           :data => {:confirm => "You sure?",
                                      :method => "delete"} %></p>
-
 <p><%= link_to "Return to animals", animals_path %></p>
+<p> <%= link_to "Add Sighting", new_animal_sighting_path(@animal) %> </p>

@@ -5,7 +5,7 @@
 <% if @animals.any? %>
   <ul>
     <% @animals.each do |animal| %>
-      <li> <%= animal.species %> </li>
+      <li> <%= link_to animal.species, animal_path(animal) %> </li>
     <% end %>
   </ul>
 <% else %>
