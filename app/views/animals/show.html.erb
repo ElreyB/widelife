@@ -1,0 +1,8 @@
+<% content_for(:title, "Wildlife Tracker | Animals") %>
+
+<p> <%= link_to "Edit", edit_animal_path(@animal) %></p>
+<p> <%= link_to "Delete", animal_path(@animal),
+                          :data => {:confirm => "You sure?",
+                                     :method => "delete"} %></p>
+
+<p><%= link_to "Return to animals", animals_path %></p>
