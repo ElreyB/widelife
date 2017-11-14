@@ -1,0 +1,15 @@
+<% content_for(:title, "Wildlife Tracker | Animals") %>
+
+<h1>Animals</h1>
+
+<% if @animals.any? %>
+  <ul>
+    <% @animals.each do |animal| %>
+      <li> <%= link_to animal.species, animal_path(animal) %> </li>
+    <% end %>
+  </ul>
+<% else %>
+  <h2>There are no animals logged.</h2>
+<% end %>
+
+<p><%= link_to "Add Animal", new_animal_path %></p>

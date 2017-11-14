@@ -9,6 +9,17 @@
   </head>
 
   <body>
+
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">Wildlife Tracker</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <%= yield(:navbar) %>
+        </ul>
+      </div>
+    </nav>
     <div class="container">
       <%= flash[:alert] %>
       <%= flash[:notice] %>

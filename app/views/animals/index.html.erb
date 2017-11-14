@@ -1,15 +1,29 @@
 <% content_for(:title, "Wildlife Tracker | Animals") %>
-
-<h1>Animals</h1>
-
-<% if @animals.any? %>
-  <ul>
-    <% @animals.each do |animal| %>
-      <li> <%= link_to animal.species, animal_path(animal) %> </li>
-    <% end %>
-  </ul>
-<% else %>
-  <h2>There are no animals logged.</h2>
+<% content_for(:navbar) do %>
+  <li><a href="animals/new">Add Animal</a></li>
 <% end %>
 
-<p><%= link_to "Add Animal", new_animal_path %></p>
+<div class="intro">
+  <h1>Wildlife Tracker</h1>
+
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+
+
+<div class="list">
+  <div class="text-center">
+    <h2>Wildlife Animals</h2>
+  </div>
+  <hr>
+  <% if @animals.any? %>
+    <ul>
+      <% @animals.each do |animal| %>
+        <li class="well"> <%= link_to animal.species, animal_path(animal) %> </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <h2>There are no animals logged.</h2>
+  <% end %>
+
+
+</div>
